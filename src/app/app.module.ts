@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotesListComponent } from './notes-list/notes-list.component';
-import { NoteCardComponent } from './note-card/note-card.component'
+import { NoteCardComponent } from './note-card/note-card.component';
+import { AddNoteComponent } from './add-note/add-note.component'
 @NgModule({
   declarations: [
     AppComponent,
     NotesListComponent,
-    NoteCardComponent
+    NoteCardComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,

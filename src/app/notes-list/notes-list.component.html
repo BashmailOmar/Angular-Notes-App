@@ -3,8 +3,8 @@
 
     <br>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <div *ngFor="let note of notesdata">
+        <div *ngFor="let note of getnotesdata">
             <app-note-card [title]="note.title" [content]="note.content"></app-note-card>
         </div>
-    </div>
+    </div> 
 </div>
