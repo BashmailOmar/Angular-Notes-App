@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotesListComponent } from './notes-list/notes-list.component';
 import { NoteCardComponent } from './note-card/note-card.component';
 import { AddNoteComponent } from './add-note/add-note.component'
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,9 @@ import { AddNoteComponent } from './add-note/add-note.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

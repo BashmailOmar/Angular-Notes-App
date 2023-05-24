@@ -1,10 +1,9 @@
 <div class="container mt-4 mx-auto">
-    <p>notes-list works!</p>
-
+    <app-add-note></app-add-note>
     <br>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <div *ngFor="let note of getnotesdata">
+        <div *ngFor="let note of notesdata">
             <app-note-card [title]="note.title" [content]="note.content"></app-note-card>
         </div>
-    </div> 
+    </div>
 </div>
