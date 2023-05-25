@@ -1,9 +1,9 @@
 <div class="container mt-4 mx-auto">
-    <app-add-note></app-add-note>
+    <app-add-note (note)="onNodeAdded($event)"></app-add-note>
     <br>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <div *ngFor="let note of notesdata">
-            <app-note-card [title]="note.title" [content]="note.content"></app-note-card>
+        <div *ngFor="let note of notesData">
+            <app-note-card [id]="note.id" [title]="note.title" [content]="note.content"></app-note-card>
         </div>
     </div>
 </div>

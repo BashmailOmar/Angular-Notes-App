@@ -15,13 +15,17 @@ export class NotesListComponent implements OnInit {
     // this.getNotesMethod();
   }
 
-  notesdata: any;
-  postnotesdata: any;
+  notesData: any;
 
   getNotesMethod() {
     this.notesDataService.getNotes().subscribe((response: any) => {
-      this.notesdata = response;
+      this.notesData = response;
     });
+  }
+
+  onNodeAdded(eventData: any) {
+    console.log(eventData);
+    this.notesData.push(eventData)
   }
 
 }

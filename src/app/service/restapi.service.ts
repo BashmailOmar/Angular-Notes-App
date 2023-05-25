@@ -17,8 +17,8 @@ export class RestapiService {
     return this.http.get(this.url);
   }
 
-  deleteNote() {
-    return this.http.delete(this.url);
+  deleteNote(id: any) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 
   updateNote(data: any) {
