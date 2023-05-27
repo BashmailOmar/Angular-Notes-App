@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RestapiService } from '../service/restapi.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { RestapiService } from '../service/restapi.service';
   styleUrls: ['./note-card.component.css']
 })
 export class NoteCardComponent {
+  @Output() deletedNote = new EventEmitter<any>();
   constructor(private notesDataService: RestapiService) {
 
   }
@@ -16,6 +17,7 @@ export class NoteCardComponent {
   OnClickDelete() {
     this.notesDataService.deleteNote(this.id).subscribe(() => {
       console.log(this.id);
+      this.deletedNote.emit();
     })
   }
 }

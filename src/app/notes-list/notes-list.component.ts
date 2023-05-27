@@ -8,7 +8,7 @@ import { RestapiService } from '../service/restapi.service';
 })
 export class NotesListComponent implements OnInit {
   constructor(private notesDataService: RestapiService) {
-        this.getNotesMethod();
+    this.getNotesMethod();
   }
 
   ngOnInit(): void {
@@ -25,7 +25,13 @@ export class NotesListComponent implements OnInit {
 
   onNodeAdded(eventData: any) {
     console.log(eventData);
-    this.notesData.push(eventData)
+    this.notesData.push(eventData);
+  }
+
+  onNodeDeleted(eventData: any, id: any) {
+    console.log(eventData);
+    var removeIndex = this.notesData.map(function (item: any) { return item.id; }).indexOf(id);
+    this.notesData.splice(removeIndex, 1);
   }
 
 }
