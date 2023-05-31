@@ -6,9 +6,9 @@
       "id": 12
     },
     {
-      "title": "Information system",
-      "content": "sdfg sfgj slkj s;ldfkjg ;sldfhg ;sldfh g;sdjfh gs;dkfjhglksjdf hlgksjdhfglk jshdlkfjgh sldkfjgh sdfgsdfg",
-      "id": 19
+      "title": "Edit button ",
+      "content": "-> create method to edit the note\n- first create popup component\n- second get the note id to show the content\n- third create method to update the note\n- don't forget to add httpclient request ",
+      "id": 22
     }
   ]
 }
