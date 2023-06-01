@@ -22,7 +22,7 @@ export class RestapiService {
   }
 
   updateNote(data: any) {
-    return this.http.patch(this.url, data);
+    return this.http.put(`${this.url}/${data.id}`, data);
   }
 }
 

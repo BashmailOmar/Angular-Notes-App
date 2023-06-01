@@ -1,5 +1,6 @@
-import { Component, Inject, Input } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { RestapiService } from '../service/restapi.service';
 
 @Component({
   selector: 'app-edit-pop-up',
@@ -7,19 +8,25 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./edit-pop-up.component.css']
 })
 export class EditPopUpComponent {
-  id: String | undefined;
+  id: String | "";
   title: String = "";
   content: String = "";
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    this.title = data.title,
-      this.content = data.content
-  }
-  editNotesFormData(data: any) {
-    if (this.title == "" || this.content == "") {
 
-    } else {
-
-      this.title = this.content = "";
-    }
+  constructor(private notesDataService: RestapiService, @Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<EditPopUpComponent>) {
+    this.title = data.title;
+    this.content = data.content;
+    this.id = data.id;
   }
+
+  CloseEditDialog() {
+    this.dialogRef.close();
+  } 
+
+  editNotesFormData(data: any) {//here it display nondefiend data! I will check this after I go home.
+    console.log(data.id)
+    // this.notesDataService.updateNote(data).subscribe((response: any) => {
+    //   console.log(response.id)
+    //  })
+  }
+
 }

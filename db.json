@@ -9,6 +9,21 @@
       "title": "Edit button ",
       "content": "-> create method to edit the note\n- first create popup component\n- second get the note id to show the content\n- third create method to update the note\n- don't forget to add httpclient request ",
       "id": 22
+    },
+    {
+      "title": "learn js",
+      "content": "it will be every 3 days\nsunday\nwednesday\n",
+      "id": 23
+    },
+    {
+      "title": "learn css",
+      "content": "it will be every 3 days\nmonday\nthursday",
+      "id": 24
+    },
+    {
+      "title": "learn html",
+      "content": "https://goo.gl/maps/FPoteJi429u7Mp3C8\ntuesday\nfriday ",
+      "id": 25
     }
   ]
 }
