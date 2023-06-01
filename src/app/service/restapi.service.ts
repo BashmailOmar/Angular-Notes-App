@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,11 @@ export class RestapiService {
   constructor(private http: HttpClient) { }
 
   createNote(data: any) {
-    return this.http.post(this.url, data);
+    return this.http.post(this.url, data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
   }
 
   getNotes() {
@@ -22,7 +26,11 @@ export class RestapiService {
   }
 
   updateNote(data: any) {
-    return this.http.put(`${this.url}/${data.id}`, data);
+    return this.http.put(`${this.url}/${data.id}`, data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
   }
 }
 
