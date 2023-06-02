@@ -12,7 +12,7 @@ export class EditPopUpComponent {
   constructor(private notesDataService: RestapiService, @Inject(MAT_DIALOG_DATA) public injectedData: any, private dialogRef: MatDialogRef<EditPopUpComponent>) {
   }
 
-  CloseEditDialog() {
+  closeEditDialog() {
     this.dialogRef.close();
   }
 
@@ -20,7 +20,8 @@ export class EditPopUpComponent {
     data.id = this.injectedData.id;
     this.notesDataService.updateNote(data).subscribe((response: any) => {
       console.log(response.id)
-    })
+    });
+    this.closeEditDialog();
   }
 
 }
