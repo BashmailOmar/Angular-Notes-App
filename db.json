@@ -7,12 +7,12 @@
     },
     {
       "title": "Edit button ",
-      "content": "-> create method to edit the note\n- first create popup component\n- second get the note id to show the content\n- third create method to update the note\n- don't forget to add httpclient request ",
+      "content": "-> create method to edit the note\n- first create popup component/done\n- second get the note id to show the content/done\n- third create method to update the note/note\n- don't forget to add httpclient request/done\n- Update local list.",
       "id": 22
     },
     {
       "title": "learn js",
-      "content": "it will be every 3 days\nsunday\nWednesday\n",
+      "content": "it will be every 3 days\nSunday\nWednesday\n",
       "id": 23
     },
     {
