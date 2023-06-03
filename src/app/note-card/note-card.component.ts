@@ -10,6 +10,7 @@ import { EditPopUpComponent } from '../edit-pop-up/edit-pop-up.component';
 })
 export class NoteCardComponent {
   @Output() deletedNote = new EventEmitter<any>();
+  @Output() editedNote = new EventEmitter<any>();
   constructor(private notesDataService: RestapiService, private dialogRef: MatDialog) { }
 
   @Input() id: String | undefined;
@@ -17,6 +18,12 @@ export class NoteCardComponent {
   @Input() content: String | undefined;
 
   OpenEditDialog() {
+    (
+      () => {
+        if (this.id === EditPopUpComponent.editedNote.id && this.title === EditPopUpComponent.editedNote.title && this.content === EditPopUpComponent.editedNote.content)
+          this.editedNote.emit();
+      }
+    )
     this.dialogRef.open(EditPopUpComponent, {
       data: {
         "title": this.title,

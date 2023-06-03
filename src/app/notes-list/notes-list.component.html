@@ -3,7 +3,7 @@
     <br>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <div *ngFor="let note of notesData">
-            <app-note-card (deletedNote)="onNodeDeleted($event,note.id)" [id]="note.id" [title]="note.title"
+            <app-note-card (editedNote)="onNoteEdited($event)" (deletedNote)="onNoteDeleted($event,note.id)" [id]="note.id" [title]="note.title"
                 [content]="note.content"></app-note-card>
         </div>
     </div>

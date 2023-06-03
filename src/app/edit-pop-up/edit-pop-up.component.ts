@@ -8,7 +8,7 @@ import { RestapiService } from '../service/restapi.service';
   styleUrls: ['./edit-pop-up.component.css']
 })
 export class EditPopUpComponent {
-  @Output() note = new EventEmitter<any>();
+  static editedNote: any;
   constructor(private notesDataService: RestapiService, @Inject(MAT_DIALOG_DATA) public injectedData: any, private dialogRef: MatDialogRef<EditPopUpComponent>) {
   }
 
@@ -16,10 +16,12 @@ export class EditPopUpComponent {
     this.dialogRef.close();
   }
 
-  editNotesFormData(data: any) {//here it display nondefiend data! I will check this after I go home.
+  editNotesFormData(data: any) {
     data.id = this.injectedData.id;
     this.notesDataService.updateNote(data).subscribe((response: any) => {
-      console.log(response.id)
+      console.log(response.id);
+      EditPopUpComponent.editedNote = response;
+      console.log(EditPopUpComponent.editedNote);
     });
     this.closeEditDialog();
   }
