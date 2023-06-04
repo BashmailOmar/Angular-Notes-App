@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RestapiService } from '../service/restapi.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EditPopUpComponent } from '../edit-pop-up/edit-pop-up.component';
 
 @Component({
@@ -16,21 +16,20 @@ export class NoteCardComponent {
   @Input() id: String | undefined;
   @Input() title: String | undefined;
   @Input() content: String | undefined;
+  forCloseDialogRef: MatDialogRef<EditPopUpComponent> | undefined;
 
   OpenEditDialog() {
-    (
-      () => {
-        if (this.id === EditPopUpComponent.editedNote.id && this.title === EditPopUpComponent.editedNote.title && this.content === EditPopUpComponent.editedNote.content)
-          this.editedNote.emit();
-      }
-    )
-    this.dialogRef.open(EditPopUpComponent, {
+    this.forCloseDialogRef = this.dialogRef.open(EditPopUpComponent, {
       data: {
         "title": this.title,
         "content": this.content,
         "id": this.id
       }
     });
+    this.forCloseDialogRef.afterClosed().subscribe(() =>
+      this.editedNote.emit()
+    )
+
   }
   OnClickDelete() {
     this.notesDataService.deleteNote(this.id).subscribe(() => {

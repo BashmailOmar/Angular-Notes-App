@@ -36,8 +36,10 @@ export class NotesListComponent implements OnInit {
   }
 
   onNoteEdited(eventData: any) {
-    console.log(EditPopUpComponent.editedNote);
-    const upd_obj = this.notesData.findIndex(() => this.notesData.id === EditPopUpComponent.editedNote.id);
-    this.notesData[upd_obj] = EditPopUpComponent.editedNote;
+    console.log(eventData);
+    this.getNotesMethod();
+    // console.log(EditPopUpComponent.editedNote);
+    // const upd_obj = this.notesData.findIndex(() => this.notesData.id === EditPopUpComponent.editedNote.id);
+    // this.notesData[upd_obj] = EditPopUpComponent.editedNote;
   }
 }
