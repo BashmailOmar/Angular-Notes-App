@@ -29,14 +29,12 @@ export class NotesListComponent implements OnInit {
     this.notesData.push(eventData);
   }
 
-  onNoteDeleted(eventData: any, id: any) {
-    console.log(eventData);
+  onNoteDeleted(id: any) {
     var removeIndex = this.notesData.map(function (item: any) { return item.id; }).indexOf(id);
     this.notesData.splice(removeIndex, 1);
   }
 
-  onNoteEdited(eventData: any) {
-    console.log(eventData);
+  onNoteEdited() {
     this.getNotesMethod();
     // console.log(EditPopUpComponent.editedNote);
     // const upd_obj = this.notesData.findIndex(() => this.notesData.id === EditPopUpComponent.editedNote.id);

@@ -26,10 +26,12 @@ export class NoteCardComponent {
         "id": this.id
       }
     });
-    this.forCloseDialogRef.afterClosed().subscribe(() =>
-      this.editedNote.emit()
+    this.forCloseDialogRef.afterClosed().subscribe(res => {
+      if (!res.data) {
+        this.editedNote.emit();
+      }
+    }
     )
-
   }
   OnClickDelete() {
     this.notesDataService.deleteNote(this.id).subscribe(() => {

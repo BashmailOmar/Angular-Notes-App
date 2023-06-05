@@ -8,24 +8,23 @@ import { RestapiService } from '../service/restapi.service';
   styleUrls: ['./edit-pop-up.component.css']
 })
 export class EditPopUpComponent {
-   @Output() editedNote = new EventEmitter<any>();
-
+  isCancel: boolean = false;
   constructor(private notesDataService: RestapiService, @Inject(MAT_DIALOG_DATA) public injectedData: any, private dialogRef: MatDialogRef<EditPopUpComponent>) {
 
-  }
-
-  
-  closeEditDialog() {
-    this.dialogRef.close(this.editedNote.emit());
   }
 
   editNotesFormData(data: any) {
     data.id = this.injectedData.id;
     this.notesDataService.updateNote(data).subscribe((response: any) => {
       console.log(response.id);
-      
+      this.dialogRef.close({data:this.isCancel});
     });
-    this.closeEditDialog();
   }
+
+  closeEditDialog() {
+    this.isCancel = true;
+  }
+
+
 
 }
