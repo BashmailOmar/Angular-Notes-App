@@ -14,11 +14,14 @@ export class EditPopUpComponent {
   }
 
   editNotesFormData(data: any) {
-    data.id = this.injectedData.id;
-    this.notesDataService.updateNote(data).subscribe((response: any) => {
-      console.log(response.id);
-      this.dialogRef.close({data:this.isCancel});
-    });
+    if (!this.isCancel) {
+      data.id = this.injectedData.id;
+      this.notesDataService.updateNote(data).subscribe((response: any) => {
+        console.log(response.id);
+        this.dialogRef.close({ data: this.isCancel });
+      });
+    }
+    this.dialogRef.close({ data: this.isCancel });
   }
 
   closeEditDialog() {
