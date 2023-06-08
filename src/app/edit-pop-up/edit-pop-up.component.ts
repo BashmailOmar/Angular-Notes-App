@@ -9,7 +9,11 @@ import { RestapiService } from '../service/restapi.service';
 })
 export class EditPopUpComponent {
   isCancel: boolean = false;
-  constructor(private notesDataService: RestapiService, @Inject(MAT_DIALOG_DATA) public injectedData: any, private dialogRef: MatDialogRef<EditPopUpComponent>) {
+  constructor(
+    private notesDataService: RestapiService,
+    @Inject(MAT_DIALOG_DATA) public injectedData: any,
+    private dialogRef: MatDialogRef<EditPopUpComponent>
+  ) {
 
   }
 
@@ -18,7 +22,7 @@ export class EditPopUpComponent {
       data.id = this.injectedData.id;
       this.notesDataService.updateNote(data).subscribe((response: any) => {
         console.log(response.id);
-        this.dialogRef.close({ data: this.isCancel });
+        // this.dialogRef.close({ data: this.isCancel });
       });
     }
     this.dialogRef.close({ data: this.isCancel });

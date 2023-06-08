@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,36 @@ export class RestapiService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    });
+    }).pipe(
+      catchError(
+        (error) => {
+          console.log(error);
+          return throwError('Error');
+        }
+      )
+    );
   }
 
   getNotes() {
-    return this.http.get(this.url);
+    return this.http.get(this.url).pipe(
+      catchError(
+        (error) => {
+          console.log(error);
+          return throwError('Error');
+        }
+      )
+    );
   }
 
   deleteNote(id: any) {
-    return this.http.delete(`${this.url}/${id}`);
+    return this.http.delete(`${this.url}/${id}`).pipe(
+      catchError(
+        (error) => {
+          console.log(error);
+          return throwError('Error');
+        }
+      )
+    );
   }
 
   updateNote(data: any) {
@@ -30,7 +52,14 @@ export class RestapiService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    });
+    }).pipe(
+      catchError(
+        (error) => {
+          console.log(error);
+          return throwError('Error');
+        }
+      )
+    );
   }
 }
 
